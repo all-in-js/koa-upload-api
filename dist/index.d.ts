@@ -1,11 +1,12 @@
 import Koa from 'koa';
 import { Fields, Files } from 'formidable';
-interface UploadedResult {
+export interface UploadedResult {
     error: any;
     files: Files;
     fields: Fields;
+    invalidParams?: boolean;
 }
-interface UploadApiOptions<Ctx> {
+export interface UploadApiOptions<Ctx> {
     uri?: string;
     encoding?: string;
     uploadDir?: string;
@@ -16,6 +17,7 @@ interface UploadApiOptions<Ctx> {
     maxFields?: number;
     maxFieldsSize?: number;
     hash?: string | false;
+    validator?: (cx: Ctx) => Promise<boolean>;
     response?: (cx: Ctx, result: UploadedResult) => any;
     fileWriteStreamHandler?: () => void;
     multiples?: boolean;
