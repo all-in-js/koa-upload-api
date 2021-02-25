@@ -1,6 +1,6 @@
 {
-  "name": "koa-upload-api",
-  "version": "1.0.1",
+  "name": "@all-in-js/koa-upload-api",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,14 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/all-in-js/koa-upload-api"
+  },
   "dependencies": {
     "@types/formidable": "^1.0.31",
     "@types/fs-extra": "^9.0.6",

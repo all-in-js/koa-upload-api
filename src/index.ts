@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import fs from 'fs-extra';
-import { Fields, Files, IncomingForm } from 'formidable';
+import { Fields, File, Files, IncomingForm } from 'formidable';
 
 export interface UploadedResult {
   error: any;
@@ -59,7 +59,7 @@ function uploadApi<Ctx>(options: UploadApiOptions<Ctx>) {
                  * 验证不通过时删掉已上传的文件
                  */
                 Object.keys(files).forEach((fileKey) => {
-                  fs.remove(files[fileKey].path);
+                  fs.remove((files[fileKey] as File).path);
                 });
               }
               return rs({
